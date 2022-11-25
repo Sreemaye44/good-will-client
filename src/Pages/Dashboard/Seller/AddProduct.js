@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 import { AuthContext } from '../../../Context/AuthProvider';
 
 const AddProduct = () => {
     const categories=useLoaderData();
+    const navigate=useNavigate();
     const {user}=useContext(AuthContext);
     
     const handleAddProduct=(event)=>{
@@ -47,6 +48,7 @@ const AddProduct = () => {
     if(data.acknowledged){
       swal('successfully product added!')
       form.reset();
+      navigate('/dashboard/myproduct');
     }
     console.log(data)})
   .catch(er=>console.error(er))

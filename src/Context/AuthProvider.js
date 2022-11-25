@@ -33,16 +33,6 @@ const AuthProvider = ({children}) => {
         return ()=> unsubscribe();
     },[])
 
-    const [categories, setCategories]=useState([]);
-    useEffect(()=>{
-        fetch('http://localhost:5000/categories')
-        .then(res=>res.json())
-        .then(data=>{
-            //console.log(data)
-            setCategories(data);        
-        })
-    },[])
-
 
     const authInfo={
         user,
@@ -51,7 +41,7 @@ const AuthProvider = ({children}) => {
         logOut,
         updateUser,
         loading,
-        categories
+      
 
     }
     return (
