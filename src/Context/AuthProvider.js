@@ -21,6 +21,8 @@ const AuthProvider = ({children}) => {
     const logOut=()=>{
         return signOut(auth);
     }
+
+    
     
     useEffect(()=>{
         const unsubscribe= onAuthStateChanged(auth,currentUser=>{
@@ -31,6 +33,16 @@ const AuthProvider = ({children}) => {
         return ()=> unsubscribe();
     },[])
 
+    const [categories, setCategories]=useState([]);
+    useEffect(()=>{
+        fetch('http://localhost:5000/categories')
+        .then(res=>res.json())
+        .then(data=>{
+            //console.log(data)
+            setCategories(data);        
+        })
+    },[])
+
 
     const authInfo={
         user,
@@ -38,7 +50,8 @@ const AuthProvider = ({children}) => {
         signIn,
         logOut,
         updateUser,
-        loading
+        loading,
+        categories
 
     }
     return (

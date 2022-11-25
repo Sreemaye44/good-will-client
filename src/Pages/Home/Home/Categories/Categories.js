@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import Category from './Category';
+export const MyContext=createContext('');
 
 const Categories = () => {
     const [categories, setCategories]=useState([]);
@@ -7,7 +8,7 @@ const Categories = () => {
         fetch('http://localhost:5000/categories')
         .then(res=>res.json())
         .then(data=>{
-            console.log(data)
+            //console.log(data)
             setCategories(data);        
         })
     },[])
