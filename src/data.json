@@ -1,0 +1,26 @@
+[
+    {
+        "categoryName": "Baby Gear",
+        "photo": "https://images.unsplash.com/photo-1624127506513-54ebbe438f6b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+    },
+    {   "categoryName": "Feeding",
+        "photo": "https://media1.popsugar-assets.com/files/thumbor/s5HWPyb_HhFddY8RPtNogMso52c/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2018/07/12/919/n/44100376/ccbd56985b47c2685d28b4.89497469_/i/Best-Baby-Feeding-Products-2018.jpg"
+    },
+
+    {
+        "categoryName": "Toys",
+        "photo":"https://securecdn.pymnts.com/wp-content/uploads/2020/10/toys-spending-pandemic-Mattel.jpg"
+    },
+    {
+        "categoryName": "Bathing",
+        "photo": "https://rukminim1.flixcart.com/image/612/612/l3rmzrk0/bath-tub/q/9/a/babies-bathtub-with-anti-slip-base-with-smooth-edges-for-infants-original-imaget5yty2nghyr.jpeg?q=70"
+    },
+    {
+        "categoryName": "Nursery",
+        "photo": "https://decombo.com/wp-content/uploads/2020/11/bebek-odasi-dekorasyon-fikirleri.jpg"
+    },
+    {
+        "categoryName": "Dress",
+        "photo": "https://www.cnet.com/a/img/resize/ff0360c46e1191cf212879d12b02c3e544b6add8/hub/2022/01/07/fa883212-8dac-4e37-9459-11f0c0b5e59e/baby-clothes-hero-image.jpg?auto=webp&fit=crop&height=1200&width=1200"
+    }
+]
