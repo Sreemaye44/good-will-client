@@ -1,22 +1,30 @@
 import React, { useEffect, useState } from 'react';
-
+import axios from 'axios'
 const Advertise = () => {
-    const [advertise, getAdvertise] = useState([]);
+    const [advertise, setAdvertise] = useState([]);
     useEffect(() => {
-        axios.get
+        axios.get('https://goodwill-store-server.vercel.app/products/advertise')
+            .then(data => {
+               const advertiseLoaded=data.data;
+                setAdvertise(advertiseLoaded);
+        });
     })
     
     return (
-        <div className="card w-96 shadow-xl image-full">
-  <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
+        <div className='grid grid-cols-3 gap-5 pt-10 '>
+            {
+                advertise.map(ad =>
+                    <div className="card w-96 glass">
+  <figure><img src={ad.imageURL} className='h-96' alt="car!"/></figure>
   <div className="card-body">
-    <h2 className="card-title">Shoes!</h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
-    <div className="card-actions justify-end">
-      <button className="btn btn-primary">Buy Now</button>
+    <div className="card-actions">
+                                <button className="btn btn-primary btn-block">{ad.productName} is only Tk {ad.resalePrice} Now!</button>
     </div>
   </div>
 </div>
+              )  
+            }
+        </div>
     );
 };
 

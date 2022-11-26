@@ -4,12 +4,11 @@ const useAdmin = email => {
     const [isAdmin, setIsAdmin] = useState(false);
     const [isAdminLoading, setIsAdminLoading] = useState(true);
     useEffect(() => {
-        console.log(email)
+        
         if (email) {
             fetch(`https://goodwill-store-server.vercel.app/users/admin/${email}`)
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
                     setIsAdmin(data.isAdmin);
                     setIsAdminLoading(false);
                 })

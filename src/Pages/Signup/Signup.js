@@ -42,7 +42,6 @@ const Signup = () => {
         .then(res=>res.json())
         .then(data=>{
            // setCreatedUserEmail(email);
-           console.log(data);
             
         })
     }

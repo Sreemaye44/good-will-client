@@ -4,7 +4,7 @@ import { AuthContext } from '../../../../../Context/AuthProvider';
 
 const BookingModal = ({singleProduct,setSingleProduct, refetch}) => {
     const {user}=useContext(AuthContext);
-    const {productName,resalePrice}=singleProduct;
+    const {productName,resalePrice,imageURL}=singleProduct;
     const handleBooking=(e)=>{
         e.preventDefault();
         const form=e.target;
@@ -13,7 +13,8 @@ const BookingModal = ({singleProduct,setSingleProduct, refetch}) => {
         console.log( phone, location)
        const booking={
         itemName: productName,
-        itemPrice: resalePrice,
+         itemPrice: resalePrice,
+        image: imageURL,
         userName: user?.displayName,
         email: user?.email,
         phone,

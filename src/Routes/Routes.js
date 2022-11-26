@@ -3,6 +3,8 @@ import DashboardLayout from "../Layouts/DashboardLayout/DashboardLayout";
 import Main from "../Layouts/Main";
 import AllBuyers from "../Pages/Dashboard/Admin/AllBuyers";
 import AllSellers from "../Pages/Dashboard/Admin/AllSellers";
+import MyOrders from "../Pages/Dashboard/Buyers/MyOrders";
+import Payment from "../Pages/Dashboard/Buyers/Payment";
 import AddProduct from "../Pages/Dashboard/Seller/AddProduct";
 import MyBuyers from "../Pages/Dashboard/Seller/MyBuyers";
 import MyProduct from "../Pages/Dashboard/Seller/MyProduct";
@@ -63,7 +65,16 @@ const router=createBrowserRouter([
             {
                 path: '/dashboard/allbuyers',
                 element: <AllBuyers></AllBuyers>
-            }
+            },
+            {
+                path: '/dashboard/myorders',
+                element: <MyOrders></MyOrders>
+            },
+            {
+                path: '/dashboard/payment/:id',
+                element: <Payment></Payment>,
+                loader: ({params})=> fetch(`https://goodwill-store-server.vercel.app/bookings/${params.id}`)
+            },
 
         ]
     }
