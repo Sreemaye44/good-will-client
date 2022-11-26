@@ -6,6 +6,7 @@ import Loader from '../Shared/Loader/Loader';
 import BookingModal from './BookingModal/BookingModal';
 
 const AllProducts = () => {
+    
     const [singleProduct,setSingleProduct]=useState(null);
     const location = useLocation();
     const categoryId = location.pathname.split("/").at(2);
