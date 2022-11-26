@@ -1,14 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
+import { FaCheck, FaCheckCircle } from 'react-icons/fa';
 import swal from 'sweetalert';
-import { FaCheckCircle } from 'react-icons/fa';
 import { AuthContext } from '../../../Context/AuthProvider';
 import Loader from '../../Home/Home/Shared/Loader/Loader';
 
 const AllSellers = () => {
    const {user}=useContext(AuthContext);
    //const [verification, setVerification]=useState([]);
-    const url='http://localhost:5000/users?userCategory=Seller';
+    const url='https://goodwill-store-server.vercel.app/users?userCategory=Seller';
 
     const {data:sellers,isLoading, refetch}=useQuery({
         queryKey: [],
@@ -26,7 +26,7 @@ const AllSellers = () => {
     }
     const handleDelete=(id)=>{
 
-        fetch(`http://localhost:5000/users/${id}`,{
+        fetch(`https://goodwill-store-server.vercel.app/users/${id}`,{
             method: 'DELETE'
         })
         .then(res=>res.json())
@@ -39,7 +39,7 @@ const AllSellers = () => {
         })
     }
     const handleVerify= id=>{
-        fetch(`http://localhost:5000/users/${id}`,{
+        fetch(`https://goodwill-store-server.vercel.app/users/${id}`,{
         method: 'PATCH',
         headers: {
             'content-type': 'application/json'
@@ -82,7 +82,7 @@ const AllSellers = () => {
     <button onClick={()=>handleDelete(seller._id)}  className='btn btn-sm'>Delete</button>
     </td>
     <td>
-    <button onClick={()=>handleVerify(seller._id)}  className=''>{seller.verify? <FaCheckCircle></FaCheckCircle> : 'Verify'}</button>
+    <button onClick={()=>handleVerify(seller._id)}  className='btn btn-sm'>{seller.verify? <FaCheck className='text-blue-700'></FaCheck> : 'Verify'}</button>
     </td>
   </tr>
 

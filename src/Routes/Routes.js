@@ -45,7 +45,7 @@ const router=createBrowserRouter([
             {
                 path: '/dashboard/addproduct',
                 element: <AddProduct></AddProduct>,
-                loader: ()=> fetch('http://localhost:5000/categories')
+                loader: ()=> fetch('https://goodwill-store-server.vercel.app/categories')
                 
             },
             {

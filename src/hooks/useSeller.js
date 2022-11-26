@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
 const useSeller = email => {
     const [isSeller, setIsSeller] = useState(false);
@@ -6,7 +6,7 @@ const useSeller = email => {
     useEffect(() => {
         console.log(email)
         if (email) {
-            fetch(`http://localhost:5000/users/seller/${email}`)
+            fetch(`https://goodwill-store-server.vercel.app/users/seller/${email}`)
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);

@@ -36,7 +36,7 @@ const AddProduct = () => {
              description,
              createdBy: user.email
         }
-        fetch('http://localhost:5000/products', {
+        fetch('https://goodwill-store-server.vercel.app/products', {
     method: 'POST',
     headers: {
       'content-type': 'application/json'
