@@ -1,10 +1,17 @@
+import { loadStripe } from '@stripe/stripe-js';
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigation } from 'react-router-dom';
 
+import Loader from '../../Home/Home/Shared/Loader/Loader';
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK);
 const Payment = () => {
     const data = useLoaderData();
+    const navigation=useNavigation();
     const {itemName,itemPrice,image}=data
-    console.log(data)
+    if(navigation.state==="loading"){
+        return <Loader></Loader>
+    }
+   
     return (
         <div className="card w-96 bg-neutral shadow-xl">
   <figure className="px-10 pt-10">

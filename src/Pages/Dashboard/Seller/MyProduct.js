@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext, useState } from 'react';
+import { FaCheck } from 'react-icons/fa';
 import swal from 'sweetalert';
 import { AuthContext } from '../../../Context/AuthProvider';
 import Loader from '../../Home/Home/Shared/Loader/Loader';
@@ -70,6 +71,8 @@ const handleAdvertiseUpdate=(id)=>{
     .then(res=>res.json())
     .then(data=>{
         console.log(data);
+        refetch();
+        swal('Advertised you product successfully');
     })
 }
 
@@ -87,6 +90,7 @@ const handleAdvertiseUpdate=(id)=>{
     <th>Price</th>
     <th>Status</th>
     <th>Action</th>
+    <th>Advertise</th>
   </tr>
 </thead>
 <tbody>
@@ -108,8 +112,9 @@ const handleAdvertiseUpdate=(id)=>{
     </td>
     <td>
     {
-        !myProduct.status &&
-        <button onClick={()=>handleAdvertiseUpdate(myProduct._id)}  className='btn btn-sm btn-primary'>Advertise</button>
+        !myProduct.advertiseEnable?
+                        <button onClick={() => handleAdvertiseUpdate(myProduct._id)} className='btn btn-sm btn-primary'>Advertise</button> :
+                        <FaCheck></FaCheck>
     }
     </td>
   </tr>

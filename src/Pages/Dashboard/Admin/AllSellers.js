@@ -8,7 +8,7 @@ import Loader from '../../Home/Home/Shared/Loader/Loader';
 const AllSellers = () => {
    const {user}=useContext(AuthContext);
    //const [verification, setVerification]=useState([]);
-    const url='https://goodwill-store-server.vercel.app/users?userCategory=Seller';
+    const url='https://goodwill-store-server.vercel.app/users/user-type/Seller';
 
     const {data:sellers,isLoading, refetch}=useQuery({
         queryKey: [],

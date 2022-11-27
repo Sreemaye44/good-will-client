@@ -6,7 +6,7 @@ import Loader from '../../Home/Home/Shared/Loader/Loader';
 
 const AllBuyers = () => {
    const {user}=useContext(AuthContext);
-    const url='https://goodwill-store-server.vercel.app/users?userCategory=Buyer';
+    const url='https://goodwill-store-server.vercel.app/users/user-type/Buyer';
 
     const {data:buyers,isLoading, refetch}=useQuery({
         queryKey: [],
