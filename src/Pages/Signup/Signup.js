@@ -1,3 +1,4 @@
+
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
@@ -7,7 +8,7 @@ import { AuthContext } from '../../Context/AuthProvider';
 const Signup = () => {
     const [loginError, setLoginError]=useState('');
     const {createUser,updateUser}=useContext(AuthContext);
-    const {register, formState: {errors}, handleSubmit}=useForm();
+    const { register, formState: { errors }, handleSubmit } = useForm();
     const handleSignUp=(data)=>{
         console.log(data);
         createUser(data.email, data.password)
@@ -45,6 +46,7 @@ const Signup = () => {
             
         })
     }
+    
     return (
         <div className='h-[800px] flex justify-center items-center'>
         <div className='w-96 p-7 mr-5 bg-accent rounded-md'>
@@ -96,8 +98,7 @@ const Signup = () => {
       </div>
     </form>
     <p>Already have an account? Please <Link className='text-secondary' to="/login">Login</Link> </p>
-    <div className='divider'>OR</div>
-    <button className='btn btn-primary w-full'>CONTINUE WITH GOOGLE</button>
+                
         </div>
         
         

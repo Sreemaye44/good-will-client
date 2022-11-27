@@ -1,3 +1,4 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -5,11 +6,12 @@ import login from '../../../src/assets/illustration-people-login.png';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const Login = () => {
-    const {signIn}=useContext(AuthContext);
+    const {signIn, providerLogin}=useContext(AuthContext);
     const [loginError, setLoginError]=useState('');
     const {register, formState: {errors}, handleSubmit}=useForm();
     const location=useLocation();
-    const navigate=useNavigate();
+    const navigate = useNavigate();
+    const googleProvider=new GoogleAuthProvider()
     const from=location.state?.from?.pathname||'/';
     const handleLogin=(data)=>{
         console.log(data);
@@ -25,6 +27,40 @@ const Login = () => {
             setLoginError(error.message); 
         }
             )
+    }
+    const handleGoogleSignIn=()=>{
+
+        providerLogin(googleProvider)
+          .then(result=>{
+            const user=result.user;
+            
+              console.log(user);
+              console.log(user.displayName, user.email );
+            // form.reset();
+            // navigate(from,{replace:true})
+            // swal("Successfully Logged in!!", "success");
+              saveUserDb(user.displayName, user.email, "Buyer")
+              })
+        .catch(err=>{
+
+          console.error(err)
+        
+        })
+    }
+    const saveUserDb=(name,email,userCategory)=>{
+        const user={name,email,userCategory};
+        fetch('https://goodwill-store-server.vercel.app/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+           // setCreatedUserEmail(email);
+            
+        })
     }
     
     return (
@@ -68,7 +104,7 @@ const Login = () => {
     </form>
     <p>Don't have an account? Please <Link className='text-secondary' to="/signup">Register</Link> </p>
     <div className='divider'>OR</div>
-    <button className='btn btn-primary w-full'>CONTINUE WITH GOOGLE</button>
+    <button onClick={handleGoogleSignIn} className='btn btn-primary w-full'>CONTINUE WITH GOOGLE</button>
         </div>
         
         
