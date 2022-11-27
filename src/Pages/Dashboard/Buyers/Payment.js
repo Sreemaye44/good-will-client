@@ -6,10 +6,11 @@ import { useLoaderData, useNavigation } from 'react-router-dom';
 import Loader from '../../Home/Home/Shared/Loader/Loader';
 import CheckoutForm from './CheckoutForm';
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK);
+console.log(stripePromise)
 const Payment = () => {
-    const data = useLoaderData();
+    const booking = useLoaderData();
     const navigation=useNavigation();
-    const {itemName,itemPrice,image}=data
+    const {itemName,itemPrice,image}=booking
     if(navigation.state==="loading"){
         return <Loader></Loader>
     }
@@ -19,13 +20,13 @@ const Payment = () => {
   <figure className="px-10 pt-10">
     <img src={image} alt="Shoes" className="rounded-xl" />
   </figure>
-  <div className="card-body items-center text-center">
+  <div className="card-body items-center ">
     <h2 className="card-title">You have booked {itemName}</h2>
     <p>To confirm, Please pay TK{itemPrice}</p>
-    <div className="w-96">
+    <div className="w-96 my-12">
             <Elements stripe={stripePromise}>
               <CheckoutForm 
-                data={data}
+               booking={booking}
               />
       </Elements>
     </div>

@@ -5,13 +5,17 @@ import { AuthContext } from '../../../Context/AuthProvider';
 import Loader from '../../Home/Home/Shared/Loader/Loader';
 
 const AllBuyers = () => {
-   const {user}=useContext(AuthContext);
     const url='http://localhost:5000/users/user-type/Buyer';
 
     const {data:buyers,isLoading, refetch}=useQuery({
         queryKey: [],
         queryFn: async()=>{
-            const res= await fetch(url);
+            const res = await fetch(url,
+                {
+                    headers: {
+                        authorization: `bearer ${localStorage.getItem('accessToken')}`
+                    }
+                });
               const data = await res.json();
               console.log(data);
                     return data

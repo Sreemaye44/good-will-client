@@ -3,7 +3,13 @@ import React, { useEffect, useState } from 'react';
 const Advertise = () => {
     const [advertise, setAdvertise] = useState([]);
     useEffect(() => {
-        axios.get('http://localhost:5000/products/advertise')
+        axios.get('http://localhost:5000/products/advertise',
+        {
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
+        }
+        )
             .then(data => {
                const advertiseLoaded=data.data;
                 setAdvertise(advertiseLoaded);

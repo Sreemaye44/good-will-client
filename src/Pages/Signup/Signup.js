@@ -4,12 +4,19 @@ import { useForm } from 'react-hook-form';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 import { AuthContext } from '../../Context/AuthProvider';
+import useToken from '../../hooks/useToken';
 
 const Signup = () => {
     const [loginError, setLoginError]=useState('');
     const { createUser, updateUser } = useContext(AuthContext);
     const navigate = useNavigate();
+    const [createdUserEmail,setCreatedUserEmail]=useState('')
+    const [token]=useToken(createdUserEmail)
     const { register, formState: { errors }, handleSubmit } = useForm();
+
+    if (token) {
+        navigate('/');
+    }
     const handleSignUp=(data)=>{
         console.log(data);
         createUser(data.email, data.password)
@@ -44,20 +51,11 @@ const Signup = () => {
         .then(res=>res.json())
         .then(data=>{
            // setCreatedUserEmail(email);
-            getUserToken(email);
+            setCreatedUserEmail(email);
             
         })
     }
-    const getUserToken = email => {
-        fetch(`http://localhost:5000/jwt?email=${email}`)
-            .then(res => res.json())
-            .then(data => {
-                if (data.accessToken) {
-                    localStorage.setItem('accessToken', data.accessToken)
-                navigate('/')
-            }
-        })
-    }
+  
     
     return (
         <div className='h-[800px] flex justify-center items-center'>

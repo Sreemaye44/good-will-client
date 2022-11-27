@@ -11,6 +11,7 @@ import MyProduct from "../Pages/Dashboard/Seller/MyProduct";
 import AllProducts from "../Pages/Home/Home/AllProducts/AllProducts";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
+import NotFound from "../Pages/NotFound/NotFound";
 import Signup from "../Pages/Signup/Signup";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
@@ -77,7 +78,13 @@ const router=createBrowserRouter([
             },
 
         ]
-    }
+    },
+
+        {
+            path: '*',
+            element:<NotFound></NotFound>
+        }
+    
 ])
 
 export default router;
