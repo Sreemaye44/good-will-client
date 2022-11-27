@@ -12,7 +12,7 @@ const AllProducts = () => {
     const location = useLocation();
     const categoryId = location.pathname.split("/").at(2);
 
-    const url=`https://goodwill-store-server.vercel.app/products/category/${categoryId}`;
+    const url=`http://localhost:5000/products/category/${categoryId}`;
 
     const {data: products=[], isLoading,refetch}=useQuery({
         queryKey: [],

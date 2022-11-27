@@ -1,13 +1,14 @@
 
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const Signup = () => {
     const [loginError, setLoginError]=useState('');
-    const {createUser,updateUser}=useContext(AuthContext);
+    const { createUser, updateUser } = useContext(AuthContext);
+    const navigate = useNavigate();
     const { register, formState: { errors }, handleSubmit } = useForm();
     const handleSignUp=(data)=>{
         console.log(data);
@@ -33,7 +34,7 @@ const Signup = () => {
     }
     const saveUserDb=(name,email,userCategory)=>{
         const user={name,email,userCategory};
-        fetch('https://goodwill-store-server.vercel.app/users', {
+        fetch('http://localhost:5000/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -43,7 +44,18 @@ const Signup = () => {
         .then(res=>res.json())
         .then(data=>{
            // setCreatedUserEmail(email);
+            getUserToken(email);
             
+        })
+    }
+    const getUserToken = email => {
+        fetch(`http://localhost:5000/jwt?email=${email}`)
+            .then(res => res.json())
+            .then(data => {
+                if (data.accessToken) {
+                    localStorage.setItem('accessToken', data.accessToken)
+                navigate('/')
+            }
         })
     }
     

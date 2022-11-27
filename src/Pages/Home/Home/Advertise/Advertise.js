@@ -1,9 +1,9 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import axios from 'axios'
 const Advertise = () => {
     const [advertise, setAdvertise] = useState([]);
     useEffect(() => {
-        axios.get('https://goodwill-store-server.vercel.app/products/advertise')
+        axios.get('http://localhost:5000/products/advertise')
             .then(data => {
                const advertiseLoaded=data.data;
                 setAdvertise(advertiseLoaded);

@@ -47,7 +47,7 @@ const router=createBrowserRouter([
             {
                 path: '/dashboard/addproduct',
                 element: <AddProduct></AddProduct>,
-                loader: ()=> fetch('https://goodwill-store-server.vercel.app/categories')
+                loader: ()=> fetch('http://localhost:5000/categories')
                 
             },
             {
@@ -73,7 +73,7 @@ const router=createBrowserRouter([
             {
                 path: '/dashboard/payment/:id',
                 element: <Payment></Payment>,
-                loader: ({params})=> fetch(`https://goodwill-store-server.vercel.app/bookings/${params.id}`)
+                loader: ({params})=> fetch(`http://localhost:5000/bookings/${params.id}`)
             },
 
         ]

@@ -2,18 +2,21 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
-import BookingModal from '../../Home/Home/AllProducts/BookingModal/BookingModal';
 import Loader from '../../Home/Home/Shared/Loader/Loader';
 
 const MyOrders = () => {
     const {user}=useContext(AuthContext);
     const [orders, setOrders]=useState([]);
-    const url=`https://goodwill-store-server.vercel.app/bookings?email=${user?.email}`;
+    const url=`http://localhost:5000/bookings?email=${user?.email}`;
 
     const {data:myOrders,isLoading, refetch}=useQuery({
         queryKey: [user?.email],
         queryFn: async()=>{
-            const res= await fetch(url);
+            const res = await fetch(url, {
+                headers: {
+                    authorization: `bearer ${localStorage.getItem('accessToken')}`
+                }
+            });
               const data = await res.json();
               console.log(data);
                     return data

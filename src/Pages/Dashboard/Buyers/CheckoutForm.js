@@ -1,6 +1,5 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import React, { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../../../Context/AuthProvider';
+import React, { useEffect, useState } from 'react';
 
 const CheckoutForm = ({ data }) => {
     const [cardError,setCardError]=useState('');
@@ -79,7 +78,7 @@ const CheckoutForm = ({ data }) => {
                 email,
                 bookingId: _id
               }
-              fetch('https://goodwill-store-server.vercel.app/payments',{
+              fetch('http://localhost:5000/payments',{
                 method: 'POST',
                 headers: {
                   'content-type': 'application/json',

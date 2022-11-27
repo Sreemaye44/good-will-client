@@ -5,7 +5,7 @@ export const MyContext=createContext('');
 const Categories = () => {
     const [categories, setCategories]=useState([]);
     useEffect(()=>{
-        fetch('https://goodwill-store-server.vercel.app/categories')
+        fetch('http://localhost:5000/categories')
         .then(res=>res.json())
         .then(data=>{
             //console.log(data)

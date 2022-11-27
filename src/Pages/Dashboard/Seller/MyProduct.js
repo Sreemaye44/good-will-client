@@ -8,7 +8,7 @@ import Loader from '../../Home/Home/Shared/Loader/Loader';
 const MyProduct = () => {
     const {user}=useContext(AuthContext);
     const [orders, setOrders]=useState([]);
-    const url=`https://goodwill-store-server.vercel.app/my-products?email=${user?.email}`;
+    const url=`http://localhost:5000/my-products?email=${user?.email}`;
 
     const {data:myProducts,isLoading, refetch}=useQuery({
         queryKey: [user?.email],
@@ -25,7 +25,7 @@ const MyProduct = () => {
         return <Loader></Loader>
     }
     const handleStatusUpdate= id=>{
-        fetch(`https://goodwill-store-server.vercel.app/my-products/${id}?status=SOLD`,{
+        fetch(`http://localhost:5000/my-products/${id}?status=SOLD`,{
         method: 'PUT',
         headers: {
             'content-type': 'application/json'
@@ -49,7 +49,7 @@ const MyProduct = () => {
  
 }
 const handleDelete=(id)=>{
-    fetch(`https://goodwill-store-server.vercel.app/my-products/${id}`,{
+    fetch(`http://localhost:5000/my-products/${id}`,{
         method: 'DELETE'
     })
     .then(res=>res.json())
@@ -62,7 +62,7 @@ const handleDelete=(id)=>{
     })
 }
 const handleAdvertiseUpdate=(id)=>{
-    fetch(`https://goodwill-store-server.vercel.app/my-products/${id}?advertiseEnable=true`,{
+    fetch(`http://localhost:5000/my-products/${id}?advertiseEnable=true`,{
         method: 'PUT',
         headers: {
             'content-type': 'application/json'
