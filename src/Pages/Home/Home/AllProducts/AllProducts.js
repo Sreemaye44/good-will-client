@@ -65,20 +65,20 @@ const AllProducts = () => {
         { products&&
           products.map(product =>
             <div product={product} key={product._id} className="card  bg-neutral shadow-xl">
-  <figure><img src={product.imageURL} className='w-full h-72' alt="Album"/></figure>
+  <figure><img src={product?.imageURL} className='w-full h-72' alt="Album"/></figure>
   <div className="card-body">
          <div className='flex justify-between'>
-      <h2 className="card-title">Product Name: {product.productName}</h2>
+      <h2 className="card-title">Product Name: {product?.productName}</h2>
      <h2 className='text-2xl'>{product?.user_info[0]?.verify && <FaCheck className='text-blue-600'></FaCheck>}</h2>
                 </div>
                 <p> {formatDate(product.createdAt)}</p>
-    <p>Description: {product.description}</p>
+    <p>Description: {product?.description}</p>
     <div className='grid grid-cols-2 gap-3'>
-    <p>Condition: {product.quality}</p>
+    <p>Condition: {product?.quality}</p>
     
-    <p>Pickup point: {product.location}</p>
-    <p>Original Price: Tk {product.originalPrice}</p>
-    <p>Current Price: Tk {product.resalePrice}</p>
+    <p>Pickup point: {product?.location}</p>
+    <p>Original Price: Tk {product?.originalPrice}</p>
+    <p>Current Price: Tk {product?.resalePrice}</p>
     
     <p>Contact: {product.phone}</p>
 
