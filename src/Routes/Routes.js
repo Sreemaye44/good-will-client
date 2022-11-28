@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../Layouts/DashboardLayout/DashboardLayout";
 import Main from "../Layouts/Main";
+import Blog from "../Pages/Blog/Blog";
 import AllBuyers from "../Pages/Dashboard/Admin/AllBuyers";
 import AllSellers from "../Pages/Dashboard/Admin/AllSellers";
 import MyOrders from "../Pages/Dashboard/Buyers/MyOrders";
@@ -38,6 +39,10 @@ const router=createBrowserRouter([
                 element:<PrivateRoute><AllProducts></AllProducts></PrivateRoute>,
                 
             
+            },
+            {
+                path: '/blog',
+                element: <Blog></Blog>
             }
         ]
     },
