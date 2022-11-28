@@ -1,13 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 import Loader from '../../Home/Home/Shared/Loader/Loader';
 
 const MyWishlist = () => {
     const {user}=useContext(AuthContext);
-    const url=`http://localhost:5000/users?email=${user?.email}`;
+    const url=`http://localhost:5000/wishlist?email=${user?.email}`;
 
-    const {data:myOrders,isLoading, refetch}=useQuery({
+    const {data:myWishList,isLoading, refetch}=useQuery({
         queryKey: [user?.email],
         queryFn: async()=>{
             const res = await fetch(url, {
@@ -16,7 +17,6 @@ const MyWishlist = () => {
                 }
             });
               const data = await res.json();
-              console.log(data);
                     return data
                              
         }
@@ -26,7 +26,7 @@ const MyWishlist = () => {
     }
     return (
         <div>
-        <h2 className='text-3xl text-center mb-5'>My Orders</h2>
+        <h2 className='text-3xl text-center mb-5'>My WishList</h2>
      <div className="overflow-x-auto">
 <table
 className="table w-full">
@@ -40,9 +40,21 @@ className="table w-full">
 </tr>
 </thead>
 <tbody>
-<td></td>
-
-
+                        {
+                            myWishList.map((wl, i) =>
+        <tr key={wl._id}>
+    <th>{i+1}</th>
+    <td><div className="avatar">
+<div className="w-24 rounded-full">
+<img src={wl.image} alt=""/>
+</div></div></td>
+    <td>{wl.name}</td>
+                                    <td>{wl.price}</td>
+                                    <td><Link to={`/products/${wl.categoryId}`}><button className='btn btn-sm btn-primary'>BUY</button></Link></td>
+                                    </tr>
+                                    
+                            )}
+                    
 </tbody>
 </table>
 </div>

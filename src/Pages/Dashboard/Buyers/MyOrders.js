@@ -26,9 +26,7 @@ const MyOrders = () => {
     if(isLoading){
         return <Loader></Loader>
     }
-    const handlePayment = (id) => {
-        
-    }
+
     return (
         <div>
            <h2 className='text-3xl text-center mb-5'>My Orders</h2>
