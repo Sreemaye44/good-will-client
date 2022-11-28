@@ -9,7 +9,8 @@ const CheckoutForm = ({ booking }) => {
 	const [clientSecret, setClientSecret] = useState("");
 	const stripe = useStripe();
 	const elements = useElements();
-	const { itemPrice, _id, email, name } = booking;
+	const { itemId, itemPrice, _id, email, name } = booking;
+	console.log(booking);
 
 	useEffect(() => {
 		// Create PaymentIntent as soon as the page loads
@@ -66,6 +67,7 @@ const CheckoutForm = ({ booking }) => {
 			
 			//store payment info in database
 			const payment = {
+				itemId: itemId,
 				itemPrice,
 				transactionId: paymentIntent.id,
 				email,

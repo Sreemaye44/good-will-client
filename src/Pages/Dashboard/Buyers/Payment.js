@@ -10,7 +10,7 @@ console.log(stripePromise)
 const Payment = () => {
     const booking = useLoaderData();
     const navigation=useNavigation();
-    const {itemName,itemPrice,image}=booking
+    const {itemId,itemName,itemPrice,image}=booking
     if(navigation.state==="loading"){
         return <Loader></Loader>
     }
