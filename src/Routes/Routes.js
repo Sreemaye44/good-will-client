@@ -15,6 +15,8 @@ import Login from "../Pages/Login/Login";
 import NotFound from "../Pages/NotFound/NotFound";
 import Signup from "../Pages/Signup/Signup";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import AdminRoute from './AdminRoute/AdminRoute'
+import MyWishlist from "../Pages/Dashboard/Buyers/MyWishlist";
 
 const router=createBrowserRouter([
     {
@@ -66,15 +68,19 @@ const router=createBrowserRouter([
             },
             {
                 path: '/dashboard/allsellers',
-                element: <AllSellers></AllSellers>
+                element: <AdminRoute><AllSellers></AllSellers></AdminRoute>
             },
             {
                 path: '/dashboard/allbuyers',
-                element: <AllBuyers></AllBuyers>
+                element: <AdminRoute><AllBuyers></AllBuyers></AdminRoute>
             },
             {
                 path: '/dashboard/myorders',
                 element: <MyOrders></MyOrders>
+            },
+            {
+                path: '/dashboard/mywishlist',
+                element: <MyWishlist></MyWishlist>
             },
             {
                 path: '/dashboard/payment/:id',

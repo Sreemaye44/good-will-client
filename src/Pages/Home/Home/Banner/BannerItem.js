@@ -3,18 +3,13 @@ import React from 'react';
 const BannerItem = ({slide}) => {
     const{image, prev, next, id}=slide;
     return (
-        <div id={`slide${id}`} className="carousel-item relative w-full">
+        <div id={`slide${id}`} className="carousel-item relative w-full ">
         <div className='carousel-img'>
         <img src={image}  alt='' className="w-screen h-screen rounded-lg" />
         </div>
            <div className="absolute flex justify-end transform -translate-y-1/2 left-24 top-1/4">
             <h1 className='text-5xl font-bold text-white'>Trust us with your money and child
             </h1>
-          </div>
-          
-          <div className="absolute flex justify-end transform -translate-y-1/2 w-2/5 left-24 top-1/3 pt-5">
-            <p className='text-white text-xl'> Buy Baby Items in a cheaper alternative! So, Don't delay, buy & sell today!!
-            </p>
           </div>
       
           <div className="absolute flex justify-start transform -translate-y-1/2 w-2/5 left-24 top-1/2">

@@ -13,7 +13,7 @@ const Categories = () => {
         })
     },[])
     return (
-        <div className='grid grid-cols-3 gap-20 py-20'>
+        <div className='grid lg:grid-cols-3 gap-20 py-20'>
             {
                 categories.map(category=><Category 
                 id={category._id}

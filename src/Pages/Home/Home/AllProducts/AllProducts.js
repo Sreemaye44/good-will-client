@@ -1,7 +1,7 @@
 
 import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
-import { FaCheck } from 'react-icons/fa';
+import { FaCheck, FaHeart } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom';
 import Loader from '../Shared/Loader/Loader';
 import BookingModal from './BookingModal/BookingModal';
@@ -29,7 +29,7 @@ const AllProducts = () => {
     
    
     return (
-        <div className='grid grid-cols-3 gap-5'>
+        <div className='grid lg:grid-cols-3 gap-5 mb-5'>
           {products.map(product=>
             <div product={product} key={product._id} className="card  bg-neutral shadow-xl">
   <figure><img src={product.imageURL} className='w-full h-72' alt="Album"/></figure>
@@ -48,7 +48,8 @@ const AllProducts = () => {
     <p>Contact: {product.phone}</p>
 
     </div>
-    <div className="card-actions justify-end">
+       <div className="card-actions justify-between">
+                <FaHeart className='text-4xl' ></FaHeart>
       <label htmlFor="booking-modal" className="btn btn-primary" onClick={()=>setSingleProduct(product)}>Book Now!</label>
     </div>
   </div>

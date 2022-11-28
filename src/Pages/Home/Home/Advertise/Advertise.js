@@ -17,7 +17,7 @@ const Advertise = () => {
     })
     
     return (
-        <div className='grid grid-cols-3 gap-5 pt-10 '>
+        <div className='grid lg:grid-cols-3 gap-5 pt-10 '>
             {
                 advertise.map(ad =>
                     <div className="card w-96 glass">
