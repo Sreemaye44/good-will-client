@@ -8,7 +8,7 @@ GOOD-WILL STORE people sell their baby products in different category , seller c
 
 ### Functionalities
 
-* Email-asswpord Login and Goodle Login & Registration is available for the website
+* Email-passwpord Login and Goodle Login & Registration is available for the website
 * Different category products are available. In every category those category related products are available, any buyer can book those products and pay for that
 * Admin dashboard is available. Admin can verify any seller, delete buyer and seller.
 * In seller dashboard, seller can add products, advertise, change sold status and delete his products
@@ -20,10 +20,8 @@ GOOD-WILL STORE people sell their baby products in different category , seller c
 
 ### Dependencies
 
-* "bootstrap": "^5.2.2",
 * "firebase": "^9.12.1",
 * "html2canvas": "^1.4.1"
-* "jspdf": "^2.5.1",
 * "react": "^18.2.0"
 * "tailwind-DaisyUi"
 * "react-icons": "^4.6.0"
