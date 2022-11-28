@@ -1,12 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 import Loader from '../../Home/Home/Shared/Loader/Loader';
 
 const MyWishlist = () => {
     const {user}=useContext(AuthContext);
-    const url=`http://localhost:5000/wishlist?email=${user?.email}`;
+    const url=`https://goodwill-store-server.vercel.app/wishlist?email=${user?.email}`;
 
     const {data:myWishList,isLoading, refetch}=useQuery({
         queryKey: [user?.email],

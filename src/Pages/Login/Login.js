@@ -57,7 +57,7 @@ const Login = () => {
 	};
 	const saveUserDb = (name, email, userCategory) => {
 		const user = { name, email, userCategory };
-		fetch("http://localhost:5000/users", {
+		fetch("https://goodwill-store-server.vercel.app/users", {
 			method: "POST",
 			headers: {
                 "content-type": "application/json",

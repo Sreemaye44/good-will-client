@@ -5,6 +5,7 @@ import Blog from "../Pages/Blog/Blog";
 import AllBuyers from "../Pages/Dashboard/Admin/AllBuyers";
 import AllSellers from "../Pages/Dashboard/Admin/AllSellers";
 import MyOrders from "../Pages/Dashboard/Buyers/MyOrders";
+import MyWishlist from "../Pages/Dashboard/Buyers/MyWishlist";
 import Payment from "../Pages/Dashboard/Buyers/Payment";
 import AddProduct from "../Pages/Dashboard/Seller/AddProduct";
 import MyBuyers from "../Pages/Dashboard/Seller/MyBuyers";
@@ -14,9 +15,8 @@ import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
 import NotFound from "../Pages/NotFound/NotFound";
 import Signup from "../Pages/Signup/Signup";
+import AdminRoute from './AdminRoute/AdminRoute';
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
-import AdminRoute from './AdminRoute/AdminRoute'
-import MyWishlist from "../Pages/Dashboard/Buyers/MyWishlist";
 
 const router=createBrowserRouter([
     {
@@ -55,7 +55,7 @@ const router=createBrowserRouter([
             {
                 path: '/dashboard/addproduct',
                 element: <AddProduct></AddProduct>,
-                loader: ()=> fetch('http://localhost:5000/categories')
+                loader: ()=> fetch('https://goodwill-store-server.vercel.app/categories')
                 
             },
             {
@@ -85,7 +85,7 @@ const router=createBrowserRouter([
             {
                 path: '/dashboard/payment/:id',
                 element: <Payment></Payment>,
-                loader: ({params})=> fetch(`http://localhost:5000/bookings/${params.id}`)
+                loader: ({params})=> fetch(`https://goodwill-store-server.vercel.app/bookings/${params.id}`)
             },
 
         ]

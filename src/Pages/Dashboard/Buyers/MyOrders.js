@@ -7,7 +7,7 @@ import Loader from '../../Home/Home/Shared/Loader/Loader';
 const MyOrders = () => {
     const {user}=useContext(AuthContext);
     const [orders, setOrders]=useState([]);
-    const url=`http://localhost:5000/bookings?email=${user?.email}`;
+    const url=`https://goodwill-store-server.vercel.app/bookings?email=${user?.email}`;
 
     const {data:myOrders,isLoading, refetch}=useQuery({
         queryKey: [user?.email],

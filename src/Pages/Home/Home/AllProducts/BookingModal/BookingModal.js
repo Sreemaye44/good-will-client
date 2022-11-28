@@ -22,7 +22,7 @@ const BookingModal = ({singleProduct,setSingleProduct, refetch}) => {
         location
        }
        console.log(booking)
-       fetch('http://localhost:5000/bookings',{
+       fetch('https://goodwill-store-server.vercel.app/bookings',{
         method: 'POST',
         headers: {
             'content-type': 'application/json'

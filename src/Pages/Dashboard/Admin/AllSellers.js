@@ -8,7 +8,7 @@ import Loader from '../../Home/Home/Shared/Loader/Loader';
 const AllSellers = () => {
    const {user}=useContext(AuthContext);
    //const [verification, setVerification]=useState([]);
-    const url='http://localhost:5000/users/user-type/Seller';
+    const url='https://goodwill-store-server.vercel.app/users/user-type/Seller';
 
     const {data:sellers,isLoading, refetch}=useQuery({
         queryKey: [],
@@ -26,7 +26,7 @@ const AllSellers = () => {
     }
     const handleDelete=(id)=>{
 
-        fetch(`http://localhost:5000/users/${id}`,{
+        fetch(`https://goodwill-store-server.vercel.app/users/${id}`,{
             method: 'DELETE'
         })
         .then(res=>res.json())
@@ -39,7 +39,7 @@ const AllSellers = () => {
         })
     }
     const handleVerify= id=>{
-        fetch(`http://localhost:5000/users/${id}`,{
+        fetch(`https://goodwill-store-server.vercel.app/users/${id}`,{
         method: 'PATCH',
         headers: {
             'content-type': 'application/json'

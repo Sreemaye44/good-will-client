@@ -2,7 +2,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext, useState } from 'react';
 import { FaCheck, FaHeart } from 'react-icons/fa';
-import { Navigate, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import swal from 'sweetalert';
 import { AuthContext } from '../../../../Context/AuthProvider';
 import Loader from '../Shared/Loader/Loader';
@@ -14,7 +14,7 @@ const AllProducts = () => {
     const location = useLocation();
     const categoryId = location.pathname.split("/").at(2);
 
-    const url=`http://localhost:5000/products/category/${categoryId}`;
+    const url=`https://goodwill-store-server.vercel.app/products/category/${categoryId}`;
 
     const {data: products=[], isLoading,refetch}=useQuery({
         queryKey: [],
@@ -39,7 +39,7 @@ const AllProducts = () => {
 
 
     }
-    fetch('http://localhost:5000/wishlist', {
+    fetch('https://goodwill-store-server.vercel.app/wishlist', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

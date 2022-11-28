@@ -1,11 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useContext } from 'react';
+import React from 'react';
 import swal from 'sweetalert';
-import { AuthContext } from '../../../Context/AuthProvider';
 import Loader from '../../Home/Home/Shared/Loader/Loader';
 
 const AllBuyers = () => {
-    const url='http://localhost:5000/users/user-type/Buyer';
+    const url='https://goodwill-store-server.vercel.app/users/user-type/Buyer';
 
     const {data:buyers,isLoading, refetch}=useQuery({
         queryKey: [],
@@ -27,7 +26,7 @@ const AllBuyers = () => {
         return <Loader></Loader>
     }
     const handleDelete=(id)=>{
-        fetch(`http://localhost:5000/users/${id}`,{
+        fetch(`https://goodwill-store-server.vercel.app/users/${id}`,{
             method: 'DELETE'
         })
         .then(res=>res.json())

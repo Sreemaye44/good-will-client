@@ -1,7 +1,7 @@
 
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 import { AuthContext } from '../../Context/AuthProvider';
 import useToken from '../../hooks/useToken';
@@ -41,7 +41,7 @@ const Signup = () => {
     }
     const saveUserDb=(name,email,userCategory)=>{
         const user={name,email,userCategory};
-        fetch('http://localhost:5000/users', {
+        fetch('https://goodwill-store-server.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
