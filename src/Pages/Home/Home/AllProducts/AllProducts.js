@@ -62,7 +62,7 @@ const AllProducts = () => {
    
     return (
         <div className='grid lg:grid-cols-3 gap-5 mb-5'>
-        { products&&
+        { products &&
           products.map(product =>
             <div product={product} key={product._id} className="card  bg-neutral shadow-xl">
   <figure><img src={product?.imageURL} className='w-full h-72' alt="Album"/></figure>
