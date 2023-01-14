@@ -10,9 +10,9 @@ const Home = () => {
     return (
         <div className='w-full'>
             {/* <Banner></Banner> */}
-            {/* <Advertise></Advertise> */}
+           
             <HomeSlider></HomeSlider>
-            <Add></Add>
+            <Advertise></Advertise>
             <Categories></Categories>
             <FAQ></FAQ>
         </div>
