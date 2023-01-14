@@ -6,9 +6,11 @@
     box-sizing: border-box;
     border: 1px solid #ccc;
     width: 100%;
+    height: 100%;
     
   }
   .swiperclass{
      height:800px;
+     width:auto;
      padding: 0;
   }

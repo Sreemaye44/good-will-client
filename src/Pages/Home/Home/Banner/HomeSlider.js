@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import "./HomeSlider.css";
+import './../Advertise/Add.css';
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
@@ -38,10 +38,10 @@ const HomeSlider = () => {
                         <div className="space-y-3 absolute top-[25%] left-[8rem]">
                             <h3 className="text-5xl text-left font-semibold text-pink-600">New and Preloved</h3>
                             <h3 className="text-5xl text-left font-semibold text-pink-600">products for tiny tots!</h3>
-                            <p className="text-left absolute top-[25%]">We are organized and verified marketplace to sell</p>
-                            <p className="text-left absolute top-[50%]">toys, furniture and so more. A community created by</p>
-                            <p className="text-left absolute top-[75%]">parents for parents to make parenting less </p>
-                            <p className="text-left absolute">challenging and more rewarding</p>
+                            <p className="text-left absolute text-lg">We are organized and verified marketplace to sell toys, furniture and so more. A community created by parents for parents to make parenting less challenging and more rewarding</p>
+                            {/* <p className="text-left absolute">toys, furniture and so more. A community created by challenging and more rewarding</p>
+                            <p className="text-left absolute">parents for parents to make parenting less </p>
+                            <p className="text-left absolute">challenging and more rewarding</p> */}
                             <button className="btn absolute top-[225%] left-[0%] bg-gradient-to-r from-emerald-300 to-pink-300 rounded-md">sell with us</button>
                         </div>
                     </div>
@@ -54,10 +54,7 @@ const HomeSlider = () => {
                         <div className="space-y-3 absolute top-[25%] left-[8rem]">
                             <h3 className="text-5xl text-left font-semibold text-purple-600">New and Preloved</h3>
                             <h3 className="text-5xl text-left font-semibold text-purple-600">products for tiny tots!</h3>
-                            <p className="text-left absolute top-[25%]">We are organized and verified marketplace to sell</p>
-                            <p className="text-left absolute top-[50%]">toys, furniture and so more. A community created by</p>
-                            <p className="text-left absolute top-[75%]">parents for parents to make parenting less </p>
-                            <p className="text-left absolute">challenging and more rewarding</p>
+                            <p className="text-left absolute text-lg">We are organized and verified marketplace to sell toys, furniture and so more. A community created by parents for parents to make parenting less challenging and more rewarding</p>
                             <button className="btn absolute top-[225%] left-[0%] bg-gradient-to-r from-purple-300 to-pink-300 rounded-md">sell with us</button>
                         </div>
                     </div>
@@ -70,28 +67,13 @@ const HomeSlider = () => {
                         <div className="space-y-3 absolute top-[25%] right-[8rem]">
                             <h3 className="text-5xl text-left font-semibold text-emerald-600">New and Preloved</h3>
                             <h3 className="text-5xl text-left font-semibold text-emerald-600">products for tiny tots!</h3>
-                            <p className="text-left absolute top-[25%]">We are organized and verified marketplace to sell</p>
-                            <p className="text-left absolute top-[50%]">toys, furniture and so more. A community created by</p>
-                            <p className="text-left absolute top-[75%]">parents for parents to make parenting less </p>
-                            <p className="text-left absolute">challenging and more rewarding</p>
+                            <p className="text-left absolute text-lg">We are organized and verified marketplace to sell toys, furniture and so more. A community created by parents for parents to make parenting less challenging and more rewarding</p>
                             <button className="btn absolute top-[225%] left-[0%] bg-gradient-to-r from-emerald-300 to-pink-300 rounded-md">sell with us</button>
                         </div>
                     </div>
                    
                 </SwiperSlide>
-                {/* <SwiperSlide>
-                        
-                    <img src= alt=""/>
-                   
-                  
-                </SwiperSlide>
-                <SwiperSlide>
-                        
-                    <img src= alt=""/>
-                   
-                  
-                </SwiperSlide> */}
-               
+              
    
       </Swiper>
         </div>

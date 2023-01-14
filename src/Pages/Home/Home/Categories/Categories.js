@@ -13,7 +13,9 @@ const Categories = () => {
         })
     },[])
     return (
-        <div className='grid lg:grid-cols-3 gap-20 py-20'>
+        <div>
+            <h1 className="text-4xl p-12 font-bold text-center text-emerald-600">Shop Our Collections</h1>
+        <div className=' mx-24 grid lg:grid-cols-3 gap-20 py-20'>
             {
                 categories.map(category=><Category 
                 id={category._id}
@@ -21,7 +23,8 @@ const Categories = () => {
                 ></Category>)
         
          }
-        </div>
+            </div>
+            </div>
     );
 };
 

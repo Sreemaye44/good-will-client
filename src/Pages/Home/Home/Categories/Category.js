@@ -8,10 +8,10 @@ const Category = ({category,id}) => {
           pathname: `/products/${id}`,
           state: { test:"test" }
           }}>
-        <div className="card card-compact w-96 bg-base-100 shadow-xl">
-        <figure><img className='h-52 w-full' src={category.photo} alt="Shoes" /></figure>
+        <div className=" w-96 bg-base-100">
+        <figure><img className='h-64 rounded-lg transform transition duration-500 hover:scale-110 w-full' src={category.photo} alt="Shoes" /></figure>
         <div className="card-body">
-          <h2 className="text-center font-extrabold text-transparent text-2xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">{category.categoryName}</h2>
+          <h2 className="text-center font-semibold text-transparent text-2xl bg-clip-text  bg-emerald-600 rounded-md">{category.categoryName}</h2>
         </div>
       
 
