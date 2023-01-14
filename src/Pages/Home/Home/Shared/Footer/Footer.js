@@ -1,9 +1,10 @@
 import React from 'react';
+import logo from './../../../../../assets/New folder/unnamed.png'
 const Footer = () => {
     return (
-        <footer className="footer p-32 bg-neutral">
+        <footer className="footer p-24 bg-green-200">
   <div>
-    <p>Good-Will online Resale Market.<br/>Providing reliable service since 1992</p>
+  <img src={logo} alt="" className='w-24 mr-5 '/>
   </div> 
   <div>
     <span className="footer-title">Marketing</span> 
@@ -24,7 +25,7 @@ const Footer = () => {
     <a className="link link-hover">Terms of use</a> 
     <a className="link link-hover">Privacy policy</a> 
     <a className="link link-hover">Cookie policy</a>
-  </div>
+        </div>
 </footer>
     );
 };

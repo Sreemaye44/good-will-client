@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import Marquee from "react-fast-marquee";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-coverflow";
@@ -31,7 +31,8 @@ const Add = () => {
     })
     return (
         <>
-            <div><h1 className="text-4xl p-12 font-bold text-center text-emerald-600">Deals of the Week</h1></div>
+            <div className="bg-pink-200 p-12">
+                <Marquee speed='90' gradientColor="false" className="text-4xl font-bold text-center text-emerald-600 ">Deals of the Week</Marquee></div>
         <Swiper
           effect={"coverflow"}
           grabCursor={true}
