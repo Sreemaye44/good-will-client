@@ -7,7 +7,7 @@ module.exports = {
     themes:[
       {
         goodwilltheme: {
-            primary: '#C180F7',
+            primary: '#48A5A2',
             secondary: '#DA297A',
             accent: '#FFE898',
             neutral: "#FFF8BC",
